@@ -2,45 +2,61 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Live Cricket</title>
-<link rel="stylesheet" href="style.css">
+<title>Live Cricket Score</title>
+
+<style>
+body {
+    background:black;
+    color:white;
+    text-align:center;
+    font-family:Arial;
+}
+button{
+    padding:15px;
+    margin:5px;
+    font-size:20px;
+}
+</style>
 </head>
 
 <body>
 
-<div class="live">🔴 LIVE MATCH</div>
+<h2>IND vs AUS</h2>
 
-<div class="scoreboard">
+<h1 id="score">0/0</h1>
 
-<div class="team">
-<input id="team1" value="INDIA">
-<h1 id="score">0-0</h1>
-<p id="over">0.0</p>
-</div>
+<h2>Overs: <span id="overs">0.0</span></h2>
 
-<div class="info">
-CRR: <span id="crr">0</span><br>
-RRR: <span id="rrr">0</span><br>
-Target: <input id="target" value="50">
-</div>
+<button onclick="addRun(1)">+1</button>
+<button onclick="addRun(4)">+4</button>
+<button onclick="addRun(6)">+6</button>
+<button onclick="wicket()">Wicket</button>
 
-</div>
+<script>
 
-<div class="player">
-Batsman: <input id="bat" value="Player 1"><br>
-Bowler: <input id="bowl" value="Player A">
-</div>
+let runs=0;
+let wkts=0;
+let balls=0;
 
-<div class="controls">
-<button onclick="run(1)">1</button>
-<button onclick="run(2)">2</button>
-<button onclick="run(4)">4</button>
-<button onclick="run(6)">6</button>
-<button onclick="wicket()">W</button>
-<button onclick="ball()">Ball</button>
-<button onclick="reset()">Reset</button>
-</div>
+function addRun(r){
+runs+=r;
+balls++;
+update();
+}
 
-<script src="script.js"></script>
+function wicket(){
+wkts++;
+balls++;
+update();
+}
+
+function update(){
+document.getElementById("score").innerText=runs+"/"+wkts;
+document.getElementById("overs").innerText=
+Math.floor(balls/6)+"."+(balls%6);
+}
+
+</script>
+
 </body>
 </html>
