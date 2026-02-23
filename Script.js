@@ -1,37 +1,23 @@
-let run1=0;
-let wk=0;
-let b=0;
-let o=0;
+let runs = 0;
+let wickets = 0;
+let overs = 0;
 
-function run(r){
-run1+=r;
-document.getElementById("score").innerHTML=run1+"-"+wk;
-ball();
+function addRun(run) {
+  runs += run;
+  updateScore();
 }
 
-function wicket(){
-wk++;
-document.getElementById("score").innerHTML=run1+"-"+wk;
-ball();
+function addWicket() {
+  wickets += 1;
+  updateScore();
 }
 
-function ball(){
-b++;
-if(b==6){o++;b=0;}
-document.getElementById("over").innerHTML=o+"."+b;
-calc();
+function addOver() {
+  overs += 1;
+  updateScore();
 }
 
-function calc(){
-let t=document.getElementById("target").value;
-let crr=(run1/(o+(b/6))).toFixed(2);
-document.getElementById("crr").innerHTML=crr;
-let rrr=((t-run1)/(20-(o+(b/6)))).toFixed(2);
-document.getElementById("rrr").innerHTML=rrr;
-}
-
-function reset(){
-run1=0;wk=0;b=0;o=0;
-document.getElementById("score").innerHTML="0-0";
-document.getElementById("over").innerHTML="0.0";
+function updateScore() {
+  document.getElementById("score").innerText = runs + "/" + wickets;
+  document.getElementById("over").innerText = overs + ".0";
 }
