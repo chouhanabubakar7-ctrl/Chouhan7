@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body style="background:transparent;color:white;font-size:50px">
+
+<h1 id="score">0</h1>
+
+<script>
+
+setInterval(()=>{
+document.getElementById("score").innerText=
+localStorage.getItem("runs");
+},500)
+
+</script>
+
+</body>
+</html>
