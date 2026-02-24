@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+</head>
+
+<body>
+
+<h2>Live Control Panel</h2>
+
+Runs:
+<input type="number" id="run">
+
+<button onclick="sendRun()">Add Run</button>
+
+<script>
+
+function sendRun(){
+let r=document.getElementById("run").value;
+localStorage.setItem("runs",r);
+}
+
+</script>
+
+</body>
+</html>
