@@ -2,25 +2,32 @@
 <html>
 <head>
 <title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h2>Live Control Panel</h2>
+<h2>Run Control</h2>
 
-Runs:
-<input type="number" id="run">
+<button onclick="addRun(1)">1</button>
+<button onclick="addRun(2)">2</button>
+<button onclick="addRun(3)">3</button>
+<button onclick="addRun(4)">4</button>
+<button onclick="addRun(6)">6</button>
 
-<button onclick="sendRun()">Add Run</button>
+<h2>Extras</h2>
 
-<script>
+<button onclick="wide()">Wide</button>
+<button onclick="noball()">No Ball</button>
 
-function sendRun(){
-let r=document.getElementById("run").value;
-localStorage.setItem("runs",r);
-}
+<h2>Wicket</h2>
 
-</script>
+<button onclick="wicket('Bowled')">Bowled</button>
+<button onclick="wicket('Catch')">Catch</button>
+<button onclick="wicket('LBW')">LBW</button>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
